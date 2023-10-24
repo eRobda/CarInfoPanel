@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div id="time"></div>
+    </header>
+    <h1>Hello world</h1>
+
+    <div class="songs">
+        <div class="details">
+            <div id="song-title">Konečná</div>
+            <div id="song-artist">Ca$hanova Bulhar</div>
+        </div>
+        <div class="controls">
+            <img src="media/play_arrow.svg" onclick="play()" >
+            <img src="media/pause.svg" onclick="pause()">
+            <img src="media/skip.svg" onclick="next()">
+            <img src="media/previous.svg" onclick="previous()">
+        </div>
+    </div>
+
+
+    
+</body>
+<script>
+    updateTime();
+    function updateTime() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  const timeString = `${hours}:${minutes}`;
+
+  document.getElementById('time').textContent = timeString;
+}
+
+setInterval(updateTime, 1000);
+
+
+</script>
+<script>
+    const url = "https://10db-89-111-94-168.ngrok-free.app";
+</script>
+<script>
+function play(){
+    fetch(url + "/play", {
+        method: "POST",
+        headers: {
+            "ngrok-skip-browser-warning": "69420"
+        }
+    })
+}
+function pause(){
+    fetch(url + "/pause", {
+        method: "POST",
+        headers: {
+            "ngrok-skip-browser-warning": "69420"
+        }
+    })
+}
+function next(){
+    fetch(url + "/next", {
+        method: "POST",
+        headers: {
+            "ngrok-skip-browser-warning": "69420"
+        }
+    })
+}
+function previous(){
+    fetch(url + "/previous", {
+        method: "POST",
+        headers: {
+            "ngrok-skip-browser-warning": "69420"
+        }
+    })
+}
+</script>
+<script>
+    fetchSongInfo();
+    function fetchSongInfo(){
+        fetch(url + '/info', {
+        method: "GET",
+        headers: {
+            "ngrok-skip-browser-warning": "69420"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById("song-title").innerHTML = data.title;
+            document.getElementById("song-artist").innerHTML = data.artist;
+            document.getElementById("song-album").innerHTML = data.album;
+            document.getElementById("song-status").innerHTML = data.status;
+        });
+    }
+    setInterval(fetchSongInfo, 1000);
+    
+</script>
+</html>

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
+body{
+    background-color: #201E3B;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: #201E35;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#time{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-right: 15px;
+}
+.songs{
+    background-color: #3A3756;
+    position: absolute;
+    right: 0;
+    top: 50vh;
+    width: 300px;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.details{
+
+}
+#song-title{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+#song-artist{
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.582);
+}
+.controls{
+    margin-top: 10px;
+}
+.controls img{
+    scale: 1.5;
+    position: absolute;
+}
